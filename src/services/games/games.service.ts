@@ -16,7 +16,6 @@ export const buscarGamePorId = async (id: number): Promise<Game | null> => {
 };
 
 export const criarGame = async (game: Omit<Game, "id">): Promise<number> => {
-  // Aqui você poderia validar campos se quiser
   return await createGame(game);
 };
 
