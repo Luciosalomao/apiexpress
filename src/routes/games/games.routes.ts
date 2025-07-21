@@ -10,6 +10,15 @@ import validadeGame from "../../middleware/games/validadeGame";
 
 const router = Router();
 
+/**
+ * @swagger
+ * /games:
+ *   get:
+ *     summary: Retorna a lista de jogos
+ *     responses:
+ *       200:
+ *         description: Lista de jogos retornada com sucesso
+ */
 router.get("/", async (req: Request, res: Response) => {
   const games = await listarGames();
   res.json(games);
