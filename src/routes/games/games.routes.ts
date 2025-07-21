@@ -6,6 +6,7 @@ import {
   atualizarGame,
   excluirGame,
 } from "../../services/games/games.service";
+import validadeGame from "../../middleware/games/validadeGame";
 
 const router = Router();
 
@@ -25,7 +26,7 @@ router.get("/:id", async (req: Request, res: Response) => {
   res.json(game);
 });
 
-router.post("/", async (req: Request, res: Response) => {
+router.post("/", validadeGame, async (req: Request, res: Response) => {
   const { name, releasy_year, sinopse } = req.body;
 
   if (!name || !releasy_year || !sinopse) {
